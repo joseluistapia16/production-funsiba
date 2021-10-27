@@ -6,7 +6,7 @@ import path from "path";
 import cors from "cors";
 
 const app: express.Application = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 3000;
 
 app.use(
   cors({
