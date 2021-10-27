@@ -18,7 +18,7 @@ app.use(AvatarRoutes);
 app.use(SubjectRoutes);
 app.use(UserRoutes);
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "../public")));
 
 app.listen(PORT, () => {
   console.log(`Express with Typescript! http://localhost:${PORT}`);
