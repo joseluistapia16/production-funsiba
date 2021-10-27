@@ -53,6 +53,7 @@ export async function deleteUser(req: Request, res: Response) {
   try {
     const conn = await connect();
     await conn.query("delete from user where user_id = ?", [id]);
+    await conn.end();
     res.status(200).json({ status: "success", msg: "User deleted" });
   } catch (e) {
     console.log(e);
@@ -69,6 +70,7 @@ export async function login(req: Request, res: Response) {
       "SELECT * FROM bgzqyzz5g5aktydlzuez.user u, avatar a WHERE u.avatar_id = a.avatar_id AND u.username = ? AND u.avatar_id = ?;",
       [username, avatar_id]
     );
+    await conn.end();
     if (result[0].length === 0) {
       return res.status(404).json({ status: "error", msg: "User not found" });
     } else {

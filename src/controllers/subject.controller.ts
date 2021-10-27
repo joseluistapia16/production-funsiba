@@ -9,6 +9,7 @@ export async function getSubjects(req: Request, res: Response) {
     const result = await conn.query<RowDataPacket[]>(
       "CALL `bgzqyzz5g5aktydlzuez`.`sp_get_subjects`();"
     );
+    await conn.end();
     res.status(200).json(result[0][0]);
   } catch (e) {
     console.log(e);
