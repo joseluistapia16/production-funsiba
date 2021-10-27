@@ -12,7 +12,7 @@ export async function getAvatars(req: Request, res: Response) {
   try {
     const conn = await connect();
     const avatars = await conn.query<RowDataPacket[]>(
-      "CALL `funsiba`.`sp_get_avatars`();"
+      "CALL `bgzqyzz5g5aktydlzuez`.`sp_get_avatars`();"
     );
     res.status(200).json(avatars[0][0]);
   } catch (e) {
@@ -25,7 +25,7 @@ export async function getAvatarbyId(req: Request, res: Response) {
   try {
     const conn = await connect();
     const avatar = await conn.query<RowDataPacket[]>(
-      `CALL sp_get_avatar_by_id(${req.params.id});`
+      `CALL bgzqyzz5g5aktydlzuez.sp_get_avatar_by_id(${req.params.id});`
     );
     res.status(200).json(avatar[0][0]);
   } catch (e) {

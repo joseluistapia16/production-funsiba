@@ -7,7 +7,7 @@ export async function getSubjects(req: Request, res: Response) {
   try {
     const conn = await connect();
     const result = await conn.query<RowDataPacket[]>(
-      "CALL `funsiba`.`sp_get_subjects`();"
+      "CALL `bgzqyzz5g5aktydlzuez`.`sp_get_subjects`();"
     );
     res.status(200).json(result[0][0]);
   } catch (e) {
